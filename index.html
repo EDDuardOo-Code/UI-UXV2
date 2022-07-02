@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Mobile</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/themes/estilosJQM.min.css" />
+        <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="js/jquery.mobile.structure-1.4.5.min.css" /> 
+        <script src="js/jquery-1.11.1.min.js"></script> 
+        <script src="js/jquery.mobile-1.4.5.min.js"></script> 
+        <script src="js/crud.js"></script>
+    </head>
+    <body>
+        <!-- Página principal -->
+        <div data-role="page" id="principal" style="background-image:url('imagenes/fondo.png');background-repeat: no-repeat;background-size: cover;width: 100%; height: 100vh;">
+            <div data-role="footer" data-position="fixed" data-theme="e">
+                <center>
+                    <a href="#login" data-inline="true" data-role="button">Ir!</a>
+                </center>                
+            </div>
+
+        </div>
+
+        <!-- Página de login -->
+        <div data-role="page" data-theme="a" data-dialog="true" id="login">
+            <div data-role="header">
+                <h1>Login</h1>                              
+            </div>
+            <div data-role="content">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" placeholder="Ingresa tu usuario...">
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" placeholder="Escribe tu contraseña..." id="contrasena">
+
+                <a href="#" data-role="button" data-icon="check" data-inline="true" onclick="validarUsuario();">Ingresar</a>
+
+                <a href="#principal" data-role="button" data-icon="delete" data-inline="true">Cancelar</a>
+                <p>
+                   <a href="#registraUsuario">Regístrate</a> 
+                </p>
+                
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h3>Algo</h3>
+            </div>
+        </div>
+
+        <!-- Página para registrar a un usuario -->
+        <div data-role="page" id="registraUsuario" data-theme="a" data-dialog="true" >
+            <div data-role="header">
+                <h1>Registro de usuario</h1>
+                <a href="#" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-rel="back"></a>
+            </div>
+            <div data-role="content">
+                <form id="registroForm">                   
+                    <label for="usuarioR">Usuario:</label>
+                    <input type="text" id="usuarioR" placeholder="Ingresa tu usuario...">
+
+                    <label for="contrasenaR">Contraseña:</label>
+                    <input type="password" placeholder="Escribe tu contraseña..." id="contrasenaR">
+
+                    <label for="confirmaContrasena">Confirma contraseña:</label>
+                    <input type="password" placeholder="Confirma tu contraseña..." id="confirmaContrasena">
+
+                    <a href="#" data-role="button" data-icon="plus" data-inline="true" data-theme="b" onclick="registraUsuarios();">Registrar</a>
+
+                    <a href="#login" data-role="button" data-icon="delete" data-inline="true" data-theme="d" >Cancelar</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Página para mostrar los usuarios registrados-->
+        <div data-role="page" id="mostrarUsuarios" data-theme="d" data-dialog="true">
+            <div data-role="header">
+                <h1>Usuarios</h1>
+            </div>
+            <div data-role="content">
+                <h2>Lista de usuarios</h2>
+                <ul id="listaUsuarios" data-role="listview" data-inset="true">                    
+                </ul>
+            </div>
+        </div>
+
+        <!-- Página para actualizar / eliminar un registro -->
+        <div data-role="page" id="actualizaElimina" data-theme="c" data-dialog="true">
+            <div data-role="header">
+                <h1>Acciones del registro</h1>
+            </div>
+            <div data-role="content">
+                <h1>Actualiza o elimina el registro</h1>
+                <form id="accionesForm">
+                    <label for="usuarioA">Usuario:</label>
+                    <input type="text" id="usuarioA" placeholder="Ingresa tu usuario...">
+
+                    <label for="contrasenaA">Contraseña:</label>
+                    <input type="text" placeholder="Escribe tu contraseña..." id="contrasenaA">
+
+                    <a href="#" data-role="button" data-icon="edit" data-inline="true" onclick="actualizarUsuario();">Actualizar</a>
+
+                    <a href="#" data-role="button" data-icon="delete" data-inline="true" onclick="eliminarUsuario();">Eliminar</a>
+
+                    <a href="#login" data-role="button" data-icon="back" data-inline="true" >Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
